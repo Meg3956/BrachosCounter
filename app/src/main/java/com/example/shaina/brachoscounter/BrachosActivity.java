@@ -16,14 +16,16 @@ public abstract class BrachosActivity extends Activity {
 
     ListView lview;
     BirchosHaneheninAdapter listAdapter;
-    String[] brachos; //Should this be abstract with a constructor to force initialization in child classes?
+    protected String[] brachos; //Should this be abstract with a constructor to force initialization in child classes?
 
+    abstract String[] createArray();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hanehenin);
         lview = (ListView) findViewById(R.id.listView);
+        brachos = createArray();
         ArrayAdapter adapter = new ArrayAdapter(this,
                 R.layout.row_layout_listview, R.id.brachaOption, brachos);
 
