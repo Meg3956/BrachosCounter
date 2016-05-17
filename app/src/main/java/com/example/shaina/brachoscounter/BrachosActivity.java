@@ -36,8 +36,6 @@ public abstract class BrachosActivity extends Activity {
             public void onItemClick(AdapterView<?> arg0, View arg1,
                                     int position, long arg3) {
 
-                int itemPosition = position;
-
                 // ListView Clicked item value
                 String itemValue = (String) lview.getItemAtPosition(position);
 
