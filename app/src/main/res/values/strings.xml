@@ -10,4 +10,8 @@
     <string name="Psukei_DZimra">Psukei DZimra</string>
     <string name="Birchos_Krias_Shema">Birchos Krias Shema</string>
     <string name="Shemoneh_Esrei">Shemoneh Esrei</string>
+    <string name="Mincha">Mincha</string>
+    <string name="Maariv">Maariv</string>
+    <string name="Hallel">Hallel</string>
+    <string name="Mussaf">Mussaf</string>
 </resources>

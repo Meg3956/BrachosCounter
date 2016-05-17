@@ -5,4 +5,5 @@
     <integer name="Psukei_DZimra">2</integer>
     <integer name="Birchos_Krias_Shema">3</integer>
     <integer name="Shemoneh_Esrei">19</integer>
+    <integer name="Hallel">2</integer>
 </resources>
