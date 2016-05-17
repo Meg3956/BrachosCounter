@@ -49,6 +49,7 @@ public abstract class BrachosActivity extends Activity {
         });
     }
 
+    //Hope this works...
     //What is this for?
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
