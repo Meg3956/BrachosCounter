@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by dbhat on 15-03-2016.
  * Modified by SA on 5/10/16
- * Used by Meira on 5/16/16
+ * Updated by Meira on 5/17/16
  */
 
 
@@ -314,6 +314,20 @@ import java.util.List;
             return false;
         }
 
+        public void checkAllInGroup(int groupPosition){
+            changeCheckedState(groupPosition, true);
+        }
+        public void uncheckAllInGroup(int groupPosition){
+           changeCheckedState(groupPosition, false);
+        }
+
+        private void changeCheckedState(int groupPosition, boolean checked){
+            boolean[] checkStates=mChildCheckStates.get(groupPosition);
+/*            for (int i=0; i<checkStates.length; i++){
+                checkStates[i]=checked;
+            }*/
+        }
+
         public final class GroupViewHolder
         {
             TextView mGroupText;
@@ -326,5 +340,8 @@ import java.util.List;
             CheckBox mCheckBox;
             TextView mChildNumberText;
         }
+
+
     }
+
 
