@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">BrachosCounter</string>
+    <string name="app_name">Brachos Counter</string>
+    <string name="action_settings">Settings</string>
+    <string name="items_checked_colon">"Items Checked: "</string>
+    <string name="semicolon">"; "</string>
+    <string name="sum_colon">"Sum: "</string>
+    <string name="Shachris">Shachris</string>
+    <string name="Birchos_HaShachar">Birchos HaShachar</string>
+    <string name="Birchos_HaTorah">Birchos HaTorah</string>
+    <string name="Psukei_DZimra">Psukei DZimra</string>
+    <string name="Birchos_Krias_Shema">Birchos Krias Shema</string>
+    <string name="Shemoneh_Esrei">Shemoneh Esrei</string>
 </resources>
