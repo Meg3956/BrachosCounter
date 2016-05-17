@@ -134,7 +134,10 @@ public class DaveningActivity extends Activity {
         // Header, Child numeric value data
         brachosNumbers = new HashMap<String, List<Integer>> ();
         prepareShachrisData();
-        //prepareMinchaData();
+        prepareMinchaData();
+        prepareMaarivData();
+        prepareHallelData();
+        prepareMussafData();
     }
 
     private void prepareShachrisData(){
@@ -149,16 +152,77 @@ public class DaveningActivity extends Activity {
         brachos.add(getString(R.string.Shemoneh_Esrei));
 
         ArrayList<Integer> numbers=new ArrayList<>();
-        numbers.add(R.integer.Birchos_HaShachar);
-        numbers.add(R.integer.Birchos_HaTorah);
-        numbers.add(R.integer.Psukei_DZimra);
-        numbers.add(R.integer.Birchos_Krias_Shema);
-        numbers.add(R.integer.Shemoneh_Esrei);
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Birchos_HaShachar));
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Birchos_HaTorah));
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Psukei_DZimra));
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Birchos_Krias_Shema));
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Shemoneh_Esrei));
 
-        brachosNames.put(daveningCategoryNames.get(0),brachos);
-        brachosNumbers.put(daveningCategoryNames.get(0),numbers);
+        brachosNames.put(getString(R.string.Shachris),brachos);
+        brachosNumbers.put(getString(R.string.Shachris),numbers);
 
 
     }
+    private void prepareMinchaData(){
+        daveningCategoryNames.add(getString(R.string.Mincha));
+
+        ArrayList<String> brachos=new ArrayList<>();
+        brachos.add(getString(R.string.Shemoneh_Esrei));
+
+        ArrayList<Integer> numbers=new ArrayList<>();
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Shemoneh_Esrei));
+
+        brachosNames.put(getString(R.string.Mincha),brachos);
+        brachosNumbers.put(getString(R.string.Mincha),numbers);
+
+    }
+    private void prepareMaarivData(){
+
+        daveningCategoryNames.add(getString(R.string.Maariv));
+
+        ArrayList<String> brachos=new ArrayList<>();
+        brachos.add(getString(R.string.Birchos_Krias_Shema));
+        brachos.add(getString(R.string.Shemoneh_Esrei));
+
+        ArrayList<Integer> numbers=new ArrayList<>();
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Birchos_Krias_Shema));
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Shemoneh_Esrei));
+
+        brachosNames.put(getString(R.string.Maariv),brachos);
+        brachosNumbers.put(getString(R.string.Maariv),numbers);
+    }
+    private void prepareHallelData(){
+
+        daveningCategoryNames.add(getString(R.string.Hallel));
+
+        ArrayList<String> brachos=new ArrayList<>();
+        brachos.add(getString(R.string.Hallel));
+
+        ArrayList<Integer> numbers=new ArrayList<>();
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Hallel));
+
+        brachosNames.put(getString(R.string.Hallel),brachos);
+        brachosNumbers.put(getString(R.string.Hallel),numbers);
+
+
+    }
+
+    private void prepareMussafData(){
+
+        daveningCategoryNames.add(getString(R.string.Mussaf));
+
+        ArrayList<String> brachos=new ArrayList<>();
+        brachos.add(getString(R.string.Shemoneh_Esrei));
+
+        ArrayList<Integer> numbers=new ArrayList<>();
+        numbers.add(getApplicationContext().getResources().getInteger(R.integer.Shemoneh_Esrei));
+
+        brachosNames.put(getString(R.string.Mussaf),brachos);
+        brachosNumbers.put(getString(R.string.Mussaf),numbers);
+
+
+    }
+
+
     }
 
