@@ -268,6 +268,7 @@ import java.util.List;
 			*/
                 boolean getChecked[] = new boolean[getChildrenCount (mGroupPosition)];
 
+
                 // add getChecked[] to the mChildCheckStates hashmap using mGroupPosition as the key
                 mChildCheckStates.put (mGroupPosition, getChecked);
 
