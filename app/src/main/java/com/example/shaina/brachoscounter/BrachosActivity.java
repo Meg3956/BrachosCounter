@@ -25,7 +25,7 @@ public abstract class BrachosActivity extends Activity {
         setContentView(R.layout.activity_hanehenin);
         lview = (ListView) findViewById(R.id.listView);
         ArrayAdapter adapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, brachos);
+                R.layout.row_layout_listview, R.id.brachaOption, brachos);
 
         // Assign adapter to ListView
         lview.setAdapter(adapter);
