@@ -65,6 +65,8 @@ public class DaveningActivity extends Activity {
                 Toast.makeText (getApplicationContext (),
                         daveningCategoryNames.get (groupPosition) + " Expanded",
                         Toast.LENGTH_SHORT).show ();
+                listAdapter.checkAllInGroup(groupPosition);
+
             }
         });
 
@@ -78,7 +80,7 @@ public class DaveningActivity extends Activity {
                 Toast.makeText (getApplicationContext (),
                         daveningCategoryNames.get (groupPosition) + " Collapsed",
                         Toast.LENGTH_SHORT).show ();
-
+                listAdapter.uncheckAllInGroup(groupPosition);
             }
         });
 
