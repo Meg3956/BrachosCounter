@@ -15,7 +15,7 @@ import android.widget.Toast;
 public abstract class BrachosActivity extends Activity {
 
     ListView lview;
-    BirchosHaneheninAdapter listAdapter;
+    //BirchosHaneheninAdapter listAdapter;
     protected String[] brachos; //Should this be abstract with a constructor to force initialization in child classes?
 
     abstract String[] createArray();
@@ -53,7 +53,7 @@ public abstract class BrachosActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+     //   getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 

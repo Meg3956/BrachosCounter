@@ -29,10 +29,14 @@
                 android:layout_height="match_parent">
 
 
-                    <ImageButton android:background="@drawable/misc"
+                    <ImageButton
+                        android:id="@+id/daveningButton"
+                        android:background="@drawable/misc"
                     android:layout_weight="1"
                         android:layout_width="0dip"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:onClick="launchDaveningPage"
+                        />
                     <ImageButton android:background="@drawable/misc"
                         android:layout_weight="1"
                         android:layout_width="0dip"

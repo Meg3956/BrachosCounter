@@ -104,6 +104,8 @@ import java.util.List;
             return mListDataGroup.size ();
         }
 
+
+
         /*
          * This defaults to "public object getGroup" if you auto import the methods
          * I've always make a point to change it from "object" to whatever item
@@ -182,6 +184,10 @@ import java.util.List;
             return mListStringDataChild.get (mListDataGroup.get (groupPosition)).get (childPosition);
         }
 
+        public boolean childIsChecked(int groupPosition, int childPosition){
+            boolean[] checked=mChildCheckStates.get(mListDataGroup.get(groupPosition));
+            return checked[childPosition];
+        }
         public int getChildNumericData (int groupPosition, int childPosition)
         {
             return mListNumericDataChild.get (mListDataGroup.get (groupPosition)).get (childPosition);

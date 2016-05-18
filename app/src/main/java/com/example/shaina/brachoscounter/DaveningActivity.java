@@ -1,6 +1,7 @@
 package com.example.shaina.brachoscounter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,7 +38,7 @@ public class DaveningActivity extends Activity {
 
         // setting list adapter
         expListView.setAdapter (listAdapter);
-
+        setupAddButton();
         // Listview Group click listener
         expListView.setOnGroupClickListener (new ExpandableListView.OnGroupClickListener()
         {
@@ -103,11 +104,11 @@ public class DaveningActivity extends Activity {
             }
         });
 
-        Button button = (Button) findViewById (R.id.button);
-        final TextView textView = (TextView) findViewById (R.id.textView);
+        //Button button = (Button) findViewById (R.id.button);
+        //final TextView textView = (TextView) findViewById (R.id.textView);
 
 
-        button.setOnClickListener (new View.OnClickListener ()
+       /* button.setOnClickListener (new View.OnClickListener ()
         {
             public void onClick (View v)
             {
@@ -124,9 +125,45 @@ public class DaveningActivity extends Activity {
                         + getString(R.string.semicolon)
                         + getString(R.string.sum_colon) + sumOfNumericValueOfItems);
             }
-        });
+        });*/
 
     }
+
+    private int getSelectedBrachosNumbers(){
+        ArrayList<Integer> brachosNumbers = new ArrayList<>();
+        int sum=0;
+        for (int mGroupPosition = 0;
+             mGroupPosition < listAdapter.getGroupCount();
+             mGroupPosition++) {
+            sum+= listAdapter.getSumOfCheckedItemsInGroup (mGroupPosition);
+          /*  for (int mChildPosition = 0; mChildPosition < listAdapter.getChildrenCount(mGroupPosition); mChildPosition++) {
+                if (listAdapter.childIsChecked(mGroupPosition, mChildPosition)) {
+                    brachosNumbers.add(listAdapter.getChildNumericData(mGroupPosition, mChildPosition));
+                }
+            }*/
+        }
+        return sum;
+        //return brachosNumbers;
+    }
+
+
+
+    private ArrayList<String> getSelectedBrachosDescriptions()
+
+    {
+        ArrayList<String> brachosDescriptions = new ArrayList<>();
+        for (int mGroupPosition = 0;
+             mGroupPosition < listAdapter.getGroupCount();
+             mGroupPosition++) {
+            for (int mChildPosition = 0; mChildPosition < listAdapter.getChildrenCount(mGroupPosition); mChildPosition++) {
+                if (listAdapter.childIsChecked(mGroupPosition, mChildPosition)) {
+                    brachosDescriptions.add(listAdapter.getChild(mGroupPosition, mChildPosition));
+                }
+            }
+        }
+        return brachosDescriptions;
+    }
+
     private void prepareListData(){
         daveningCategoryNames = new ArrayList<String> ();
         // Add child data
@@ -139,7 +176,6 @@ public class DaveningActivity extends Activity {
         prepareHallelData();
         prepareMussafData();
     }
-
     private void prepareShachrisData(){
 
         daveningCategoryNames.add(getString(R.string.Shachris));
@@ -206,7 +242,6 @@ public class DaveningActivity extends Activity {
 
 
     }
-
     private void prepareMussafData(){
 
         daveningCategoryNames.add(getString(R.string.Mussaf));
@@ -222,7 +257,38 @@ public class DaveningActivity extends Activity {
 
 
     }
+    private void setupAddButton(){
 
+            // Create and set a Listener for the FAB to respond to clicks on its link
+            Button addButton = (Button) findViewById (R.id.addButton);
+
+            assert addButton != null;
+
+        addButton.setOnClickListener (new View.OnClickListener ()
+            {
+                @Override
+                public void onClick (View view)
+                {
+
+                    finish ();
+                }
+            });
+
+    }
+    @Override
+    public void finish() {
+        Toast.makeText (
+                getApplicationContext (),
+               getSelectedBrachosNumbers()+"", Toast.LENGTH_SHORT)
+                .show ();
+        //Intent results = new Intent();
+
+       // results.putIntegerArrayListExtra("BRACHOS_NUMBERS", getSelectedBrachosNumbers());
+      //  results.putStringArrayListExtra("BRACHOS_DESCRIPTIONS", getSelectedBrachosDescriptions());
+      //  setResult(RESULT_OK, results);
+
+        //super.finish();
+    }
 
     }
 
