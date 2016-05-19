@@ -1,105 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="com.example.shaina.brachoscounter.MainActivity">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.shaina.brachoscounter.MainActivity">
+
     <TextView
         android:id="@+id/mainInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@color/colorPrimaryDark"
-        android:text="Select a category to add brachos."
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
-    
-    
-        <TableLayout
-            android:id="@+id/mainButtons"
+        android:paddingTop="20dp"
+        android:textAlignment="center"
+        android:text="@string/main_screen_instructions"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorPrimaryDark" />
+
+
+    <TableLayout
+        android:id="@+id/mainButtons"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="40dp"
-            android:stretchColumns="*">
+        android:paddingTop="80dp"
+        android:stretchColumns="*">
 
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
 
-                    <ImageButton
-                        android:id="@+id/daveningButton"
-                        android:background="@drawable/misc"
-                    android:layout_weight="1"
-                        android:layout_width="0dip"
-                        android:layout_height="wrap_content"
-                        android:onClick="launchDaveningPage"
-                        />
-                    <ImageButton android:background="@drawable/misc"
-                        android:layout_weight="1"
-                        android:layout_width="0dip"
-                        android:layout_height="wrap_content"/>
-                    <ImageButton android:background="@drawable/misc"
-                        android:layout_weight="1"
-                        android:layout_width="0dip"
-                        android:layout_height="wrap_content"/>
+            <ImageButton
+                android:id="@+id/daveningButton"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/misc"
+                android:onClick="launchDaveningPage" />
+
+            <ImageButton
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/misc" />
+
+            <ImageButton
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/misc" />
 
         </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
 
-                <ImageButton android:background="@drawable/misc"
-                    android:layout_weight="1"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"/>
-                <ImageButton android:background="@drawable/misc"
-                    android:layout_weight="1"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"/>
-                <ImageButton android:background="@drawable/misc"
-                    android:layout_weight="1"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"/>
+            <ImageButton
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/misc" />
 
-            </TableRow>
+            <ImageButton
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/misc" />
 
-            <TableRow>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="8"
-                    android:background="@color/colorPrimaryLight">
+            <ImageButton
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/misc" />
 
-                </LinearLayout>
-            </TableRow>
+        </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <TableRow>
 
-            </TableRow>
-
-            <TableRow
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center">
+                android:layout_weight="8"
+                android:background="@color/colorPrimaryLight"
+                android:orientation="horizontal">
 
-                <Button
-                    android:gravity="center"
-                    android:text="View Totals"
-                    android:id="@+id/button2"
-                    android:layout_column="1" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_column="1"
+                android:gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="@string/view_totals" />
 
 
-            </TableRow>
+        </TableRow>
 
 
-
-
-        </TableLayout>
-    </RelativeLayout>
+    </TableLayout>
+</RelativeLayout>

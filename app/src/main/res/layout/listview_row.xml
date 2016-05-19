@@ -18,7 +18,7 @@
     <TextView
         android:id="@+id/brachaOption"
         android:textSize="25sp"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="@dimen/listview_row_height"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
