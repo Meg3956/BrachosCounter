@@ -91,7 +91,7 @@ public class DaveningActivity extends Activity {
             public boolean onChildClick (ExpandableListView parent, View v,
                                          int groupPosition, int childPosition, long id)
             {
-                // TODO Auto-generated method stub
+
                 Toast.makeText (
                         getApplicationContext (),
                         daveningCategoryNames.get (groupPosition)
@@ -129,21 +129,21 @@ public class DaveningActivity extends Activity {
 
     }
 
-    private int getSelectedBrachosNumbers(){
+    private ArrayList<Integer> getSelectedBrachosNumbers(){
         ArrayList<Integer> brachosNumbers = new ArrayList<>();
         int sum=0;
         for (int mGroupPosition = 0;
              mGroupPosition < listAdapter.getGroupCount();
              mGroupPosition++) {
-            sum+= listAdapter.getSumOfCheckedItemsInGroup (mGroupPosition);
-          /*  for (int mChildPosition = 0; mChildPosition < listAdapter.getChildrenCount(mGroupPosition); mChildPosition++) {
+
+           for (int mChildPosition = 0; mChildPosition < listAdapter.getChildrenCount(mGroupPosition); mChildPosition++) {
                 if (listAdapter.childIsChecked(mGroupPosition, mChildPosition)) {
+                   // brachosNumbers.add(mChildPosition);
                     brachosNumbers.add(listAdapter.getChildNumericData(mGroupPosition, mChildPosition));
                 }
-            }*/
+            }
         }
-        return sum;
-        //return brachosNumbers;
+        return brachosNumbers;
     }
 
 
@@ -279,7 +279,7 @@ public class DaveningActivity extends Activity {
     public void finish() {
         Toast.makeText (
                 getApplicationContext (),
-               getSelectedBrachosNumbers()+"", Toast.LENGTH_SHORT)
+               getSelectedBrachosNumbers().toString()+"", Toast.LENGTH_SHORT)
                 .show ();
         //Intent results = new Intent();
 

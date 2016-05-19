@@ -185,9 +185,16 @@ import java.util.List;
         }
 
         public boolean childIsChecked(int groupPosition, int childPosition){
-            boolean[] checked=mChildCheckStates.get(mListDataGroup.get(groupPosition));
-            return checked[childPosition];
-        }
+            boolean getChecked[] = mChildCheckStates.get (groupPosition);
+            if (getChecked != null) {
+               return getChecked[childPosition];
+                    }
+            else{
+                return false;
+                }
+            }
+
+
         public int getChildNumericData (int groupPosition, int childPosition)
         {
             return mListNumericDataChild.get (mListDataGroup.get (groupPosition)).get (childPosition);
