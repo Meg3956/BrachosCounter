@@ -1,6 +1,6 @@
 package com.example.shaina.brachoscounter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +13,15 @@ import android.widget.TextView;
  */
 public class BrachosAdapter extends ArrayAdapter<String> {
 
-    private final Context mCONTEXT;
+    private final Activity mCONTEXT;
     private final String[] mBRACHOS;
 
-    public BrachosAdapter(Context context, String[] values) {
+    static class ViewHolder {
+        public TextView text;
+        public ImageView image;
+    }
+
+    public BrachosAdapter(Activity context, String[] values) {
         super(context, R.layout.listview_row, values);
         mCONTEXT = context;
         mBRACHOS = values;
@@ -24,21 +29,25 @@ public class BrachosAdapter extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) mCONTEXT.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.listview_row, parent, false);
-        TextView textView = (TextView) rowView.findViewById(R.id.brachaOption);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
-        textView.setText(mBRACHOS[position]);
+        View rowView = convertView;
+        // reuse views
+        if (rowView == null) {
+            LayoutInflater inflater = mCONTEXT.getLayoutInflater();
+            rowView = inflater.inflate(R.layout.listview_row, null);
+            // configure view holder
+            ViewHolder viewHolder = new ViewHolder();
+            viewHolder.text = (TextView) rowView.findViewById(R.id.brachaOption);
+            viewHolder.image = (ImageView) rowView
+                    .findViewById(R.id.addSymbol);
+            rowView.setTag(viewHolder);
+        }
 
-       /* // Change the icon for Windows and iPhone
-        String s = values[position];
-        if (s.startsWith("Windows7") || s.startsWith("iPhone")
-                || s.startsWith("Solaris")) {
-            imageView.setImageResource(R.drawable.no);
-        } else {
-            imageView.setImageResource(R.drawable.ok);
-        } */
+        // fill data
+        ViewHolder holder = (ViewHolder) rowView.getTag();
+        String s = mBRACHOS[position];
+        holder.text.setText(s);
 
         return rowView;
     }
 }
+
