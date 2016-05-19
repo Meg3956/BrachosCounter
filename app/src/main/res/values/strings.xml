@@ -16,4 +16,5 @@
     <string name="Mussaf">Mussaf</string>
     <string name="main_screen_instructions">Select a category to add brachos.</string>
     <string name="view_totals">View Totals</string>
+    <string name="add_to_total">Add to Total</string>
 </resources>
