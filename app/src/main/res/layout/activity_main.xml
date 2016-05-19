@@ -37,21 +37,21 @@
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/misc"
+                android:background="@drawable/davening"
                 android:onClick="launchDaveningPage" />
 
             <ImageButton
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/misc"
+                android:background="@drawable/food_drink"
                 android:onClick="" />
 
             <ImageButton
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/misc" />
+                android:background="@drawable/holidays" />
 
         </TableRow>
 
@@ -64,19 +64,19 @@
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/misc" />
+                android:background="@drawable/birchos_hanehenin" />
 
             <ImageButton
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/misc" />
+                android:background="@drawable/miscellaneous" />
 
             <ImageButton
                 android:layout_width="0dip"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/misc" />
+                android:background="@drawable/add_your_own" />
 
         </TableRow>
 
