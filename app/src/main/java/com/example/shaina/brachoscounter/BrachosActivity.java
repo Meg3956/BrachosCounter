@@ -13,16 +13,13 @@ import android.widget.Toast;
 public abstract class BrachosActivity extends ListActivity {
 
     ListView lview;
-    //BirchosHaneheninAdapter listAdapter;
-    protected String[] brachos; //Should this be abstract with a constructor to force initialization in child classes?
+    protected String[] brachos;
 
-    abstract String[] createArray();
+    abstract String[] createArray(); //to force initialization in child classes?
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_hanehenin);
-        //lview = (ListView) findViewById(R.id.listView);
         brachos = createArray();
         BrachosAdapter adapter = new BrachosAdapter(this, brachos);
 
@@ -59,6 +56,4 @@ public abstract class BrachosActivity extends ListActivity {
         //   getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
-
 }
