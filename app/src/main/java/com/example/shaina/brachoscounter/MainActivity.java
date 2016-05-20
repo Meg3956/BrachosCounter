@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode==BRACHOS_REQUEST_CODE && resultCode==RESULT_OK){
             brachosDescriptions=data.getStringArrayListExtra("BRACHOS_DESCRIPTIONS");
             brachosNumbers=data.getIntegerArrayListExtra("BRACHOS_NUMBERS");
+            Toast.makeText (
+                    getApplicationContext (),
+                    brachosDescriptions.toString()+"", Toast.LENGTH_SHORT)
+                    .show ();
         }
     }
 

@@ -129,6 +129,7 @@ public class DaveningActivity extends Activity {
 
     }
 
+    //get selected Brachos gets an arraylist of the numbers for the brachos selected
     private ArrayList<Integer> getSelectedBrachosNumbers(){
         ArrayList<Integer> brachosNumbers = new ArrayList<>();
         int sum=0;
@@ -281,13 +282,13 @@ public class DaveningActivity extends Activity {
                 getApplicationContext (),
                getSelectedBrachosNumbers().toString()+"", Toast.LENGTH_SHORT)
                 .show ();
-        //Intent results = new Intent();
+        Intent results = new Intent();
 
-       // results.putIntegerArrayListExtra("BRACHOS_NUMBERS", getSelectedBrachosNumbers());
-      //  results.putStringArrayListExtra("BRACHOS_DESCRIPTIONS", getSelectedBrachosDescriptions());
-      //  setResult(RESULT_OK, results);
+        results.putIntegerArrayListExtra("BRACHOS_NUMBERS", getSelectedBrachosNumbers());
+      results.putStringArrayListExtra("BRACHOS_DESCRIPTIONS", getSelectedBrachosDescriptions());
+       setResult(RESULT_OK, results);
 
-        //super.finish();
+        super.finish();
     }
 
     }
