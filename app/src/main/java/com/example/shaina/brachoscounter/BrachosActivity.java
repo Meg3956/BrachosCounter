@@ -1,13 +1,9 @@
 package com.example.shaina.brachoscounter;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -15,14 +11,14 @@ import java.util.ArrayList;
 /**
  * Created by Shaina on 5/17/2016.
  */
-public abstract class BrachosActivity extends AppCompatActivity {
+public class BrachosActivity extends AppCompatActivity {
 
     private BrachosAdapter mBrachosAdapter; // The adapter we used for this ListView
-    private String[] brachos;
+    protected String[] brachos;
     private ArrayList<String> mListOfCheckedItems; // ArrayList of items to be
     // passed to the adapter which will add selected items to the list
 
-    abstract String[] createArray(); //to force initialization in child classes?
+    // abstract String[] createArray(); //to force initialization in child classes?
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -36,10 +32,10 @@ public abstract class BrachosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        setupToolBar();
+        //setupToolBar();
         initializeArrays(savedInstanceState);
         setupListView();
-        setupFAB();
+        //setupFAB();
 
        /* brachos = createArray();
         BrachosAdapter adapter = new BrachosAdapter(this, brachos);
@@ -64,10 +60,10 @@ public abstract class BrachosActivity extends AppCompatActivity {
         });*/
     }
 
-    private void setupToolBar() {
+   /* private void setupToolBar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-    }
+    } */
 
 
     private void initializeArrays(Bundle savedInstanceState) {
@@ -98,7 +94,7 @@ public abstract class BrachosActivity extends AppCompatActivity {
         list.setAdapter(mBrachosAdapter);
     }
 
-    private void setupFAB() {
+    /*private void setupFAB() {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,7 +104,7 @@ public abstract class BrachosActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-    }
+    } */
 
 
     /*protected void onListItemClick(ListView l, View v, int position, long id) {

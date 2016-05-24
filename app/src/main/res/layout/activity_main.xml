@@ -46,7 +46,7 @@
                 android:layout_height="100dip"
                 android:layout_weight="1"
                 android:background="@drawable/food_drink"
-                android:onClick="launchHanehenin" />
+                android:onClick="launchBrachos" />
 
             <ImageButton
                 android:layout_width="20dip"

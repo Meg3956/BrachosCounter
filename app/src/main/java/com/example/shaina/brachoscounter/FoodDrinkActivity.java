@@ -5,12 +5,16 @@ package com.example.shaina.brachoscounter;
  */
 public class FoodDrinkActivity extends BrachosActivity {
 
-    @Override
+   /* @Override
     String[] createArray() {
 
         String[] foodBrachos = {"Hamotzi", "Mezonos", "Hagafen", "Haetz", "Ha'adama", "Shehakol",
                 "Birkas Hamazon", "Al Hamichya", "Borei Nefashos"};
 
         return foodBrachos;
-    }
+    }*/
+
+    protected String[] foodBrachos = {"Hamotzi", "Mezonos", "Hagafen", "Haetz", "Ha'adama", "Shehakol",
+            "Birkas Hamazon", "Al Hamichya", "Borei Nefashos"};
+
 }
