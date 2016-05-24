@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
                         brachosNumbers.add(number);
                     }
                     break;
+                case SINGLE_BRACHOS_REQUEST_CODE:
+                    break;
             }
         }
 
@@ -70,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
     public void launchAddYourOwnPage(View view) {
         Intent intent = new Intent(this, AddYourOwnActivity.class);
         startActivityForResult(intent, MULTI_BRACHOS_REQUEST_CODE);
+    }
+
+    public void launchHanehenin(View view) {
+        Intent intent = new Intent(this, FoodDrinkActivity.class);
+        startActivityForResult(intent, SINGLE_BRACHOS_REQUEST_CODE);
     }
     @Override
     protected void onStart ()

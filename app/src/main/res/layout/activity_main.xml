@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/food_drink"
-                android:onClick="" />
+                android:onClick="launchHanehenin" />
 
             <ImageButton
                 android:layout_width="0dip"

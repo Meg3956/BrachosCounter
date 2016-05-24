@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +29,7 @@ public class DaveningActivity extends Activity {
         setContentView(R.layout.activity_davening);
         // get the listview
         expListView = (ExpandableListView) findViewById (R.id.lvExp);
-
+        
         // preparing list data
         prepareListData ();
 
