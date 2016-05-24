@@ -17,8 +17,6 @@ import java.util.ArrayList;
  */
 public class BrachosAdapter extends ArrayAdapter<String> {
 
-    /* private final Activity mCONTEXT;
-     private final String[] mBRACHOS; */
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private int mRowLayoutResourceId, mRowTextViewResourceId, mRowButtonResourceId;
@@ -56,41 +54,11 @@ public class BrachosAdapter extends ArrayAdapter<String> {
                     ("The items list must be initialized before being passed in to the Adapter");
         }
     }
-    /*public BrachosAdapter(Activity context, String[] values) {
-        super(context, R.layout.listview_row, values);
-        mCONTEXT = context;
-        mBRACHOS = values;
-    }*/
 
     static class ViewHolder {
-        /*public TextView text;
-        public ImageView image;*/
         TextView mCurrentTextView;
         Button mCurrentButton;
     }
-
-    /*@Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View rowView = convertView;
-        // reuse views
-        if (rowView == null) {
-            LayoutInflater inflater = mContext.getLayoutInflater();
-            rowView = inflater.inflate(R.layout.listview_row, null);
-            // configure view holder
-            ViewHolder viewHolder = new ViewHolder();
-            viewHolder.text = (TextView) rowView.findViewById(R.id.brachaOption);
-            viewHolder.image = (ImageView) rowView
-                    .findViewById(R.id.addSymbol);
-            rowView.setTag(viewHolder);
-        }
-
-        // fill data
-        ViewHolder holder = (ViewHolder) rowView.getTag();
-        String s = mBRACHOS[position];
-        holder.text.setText(s);
-
-        return rowView;
-    }*/
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {

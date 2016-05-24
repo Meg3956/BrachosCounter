@@ -1,5 +1,6 @@
 package com.example.shaina.brachoscounter;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -18,62 +19,43 @@ public class BrachosActivity extends AppCompatActivity {
     private ArrayList<String> mListOfCheckedItems; // ArrayList of items to be
     // passed to the adapter which will add selected items to the list
 
-    // abstract String[] createArray(); //to force initialization in child classes?
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         outState.putStringArrayList("CHECKED_ITEMS", mListOfCheckedItems);
         super.onSaveInstanceState(outState);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_main);
-        //setupToolBar();
+        setContentView(R.layout.activity_hanehenin);
         initializeArrays(savedInstanceState);
+        setupActionBar();
+        processIncomingData();
+        //processSavedState(savedInstanceState);
         setupListView();
-        //setupFAB();
 
-       /* brachos = createArray();
-        BrachosAdapter adapter = new BrachosAdapter(this, brachos);
-
-        // Assign adapter to ListView
-        setListAdapter(adapter);
-
-       /* lview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1,
-                                    int position, long arg3) {
-
-                // ListView Clicked item value
-                String itemValue = (String) lview.getItemAtPosition(position);
-
-                // Show Alert
-                Toast.makeText(getApplicationContext(),
-                        itemValue + ": ", Toast.LENGTH_LONG)
-                        .show();
-            }
-        });*/
+// not relevant here
     }
 
-   /* private void setupToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-    } */
+    private void setupActionBar() {
+        try {
+            getDelegate().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException nullPointerException) {
+            //nullPointerException.printStackTrace();
+        }
+    }
 
+    //I don't think we need this method... at least not as is
+    private void processIncomingData() {
+        Intent intent = getIntent();
+        mListOfCheckedItems = intent.getStringArrayListExtra("CARDS_SHOWN");
+    }
 
     private void initializeArrays(Bundle savedInstanceState) {
         // initialize the list to be put into the ListView
-        brachos = new String[25];
-
-        // fill up the list of all items
-        for (int i = 0; i < brachos.length; i++) {
-            brachos[i] = "Item #" + (i + 1);
-        }
+        String brachosList = null;
+        getIntent().getStringArrayExtra(brachosList);
 
         // initialize the list to be passed into the Adapter
         // to hold the items whose respective buttons are clicked
