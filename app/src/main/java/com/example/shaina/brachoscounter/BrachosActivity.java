@@ -29,11 +29,11 @@ public class BrachosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brachos);
-        initializeArrays(savedInstanceState);
-        setupActionBar();
         processIncomingData();
         //processSavedState(savedInstanceState);
+        //initializeArrays(savedInstanceState);
         setupListView();
+        setupActionBar();
 
 // not relevant here
     }
@@ -46,10 +46,9 @@ public class BrachosActivity extends AppCompatActivity {
         }
     }
 
-    //I don't think we need this method... at least not as is
     private void processIncomingData() {
         Intent intent = getIntent();
-        mListOfCheckedItems = intent.getStringArrayListExtra("CARDS_SHOWN");
+        brachos = intent.getStringArrayExtra(getString(R.string.brachosList));
     }
 
     private void initializeArrays(Bundle savedInstanceState) {
