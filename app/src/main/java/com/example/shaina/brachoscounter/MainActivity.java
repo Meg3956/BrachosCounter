@@ -2,15 +2,15 @@ package com.example.shaina.brachoscounter;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.Toast;
-//import com.google.gson.Gson;
+
 import java.util.ArrayList;
-import java.util.List;
+
+//import com.google.gson.Gson;
 
 //TODO: DEAL With LG user crash?
 public class MainActivity extends AppCompatActivity {
@@ -78,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FoodDrinkActivity.class);
         startActivityForResult(intent, SINGLE_BRACHOS_REQUEST_CODE);
     }
+
+    public void launchBrachos(View view) {
+        Intent intent = new Intent(this, BrachosActivity.class);
+        startActivityForResult(intent, SINGLE_BRACHOS_REQUEST_CODE);
+    }
+
     @Override
     protected void onStart ()
     {
