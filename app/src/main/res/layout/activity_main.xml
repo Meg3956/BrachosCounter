@@ -28,53 +28,54 @@
         android:stretchColumns="*">
 
         <TableRow
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
             <ImageButton
                 android:id="@+id/daveningButton"
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
+                android:layout_width="20dip"
+                android:layout_column="0"
+                android:layout_height="100dip"
                 android:layout_weight="1"
                 android:background="@drawable/davening"
                 android:onClick="launchDaveningPage" />
 
             <ImageButton
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
+                android:layout_width="20dip"
+                android:layout_height="100dip"
                 android:layout_weight="1"
                 android:background="@drawable/food_drink"
                 android:onClick="launchHanehenin" />
 
             <ImageButton
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
+                android:layout_width="20dip"
+                android:layout_height="100dip"
                 android:layout_weight="1"
                 android:background="@drawable/holidays" />
 
         </TableRow>
 
         <TableRow
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
             <ImageButton
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
+                android:layout_width="40dip"
+                android:layout_height="100dip"
                 android:layout_weight="1"
                 android:background="@drawable/birchos_hanehenin" />
 
             <ImageButton
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
+                android:layout_width="40dip"
+                android:layout_height="100dip"
                 android:layout_weight="1"
                 android:background="@drawable/miscellaneous" />
 
             <ImageButton
-                android:layout_width="0dip"
-                android:layout_height="wrap_content"
+                android:layout_width="40dip"
+                android:layout_height="100dip"
                 android:layout_weight="1"
                 android:background="@drawable/add_your_own"
                 android:onClick="launchAddYourOwnPage"/>
@@ -92,22 +93,37 @@
 
             </LinearLayout>
         </TableRow>
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center">
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/totalsButton"
+                android:layout_column="0"
+                android:gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="@string/view_total"
+                android:onClick="viewTotalBrachos"/>
+
+
+            <Button
+                android:id="@+id/totalBreakdown"
                 android:layout_column="1"
                 android:gravity="center"
                 android:layout_marginTop="60dp"
-                android:text="@string/view_totals" />
+                android:text="@string/view_total_breakdown" />
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_column="1"
+                android:gravity="center"
+                android:layout_marginTop="60dp"
+                android:text="@string/clear"
+                android:onClick="clearBrachos"/>
+
 
 
         </TableRow>
-
-
     </TableLayout>
+
 </RelativeLayout>
