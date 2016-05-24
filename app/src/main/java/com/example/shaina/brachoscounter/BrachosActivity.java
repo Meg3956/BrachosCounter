@@ -28,7 +28,7 @@ public class BrachosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hanehenin);
+        setContentView(R.layout.activity_brachos);
         initializeArrays(savedInstanceState);
         setupActionBar();
         processIncomingData();
@@ -54,8 +54,7 @@ public class BrachosActivity extends AppCompatActivity {
 
     private void initializeArrays(Bundle savedInstanceState) {
         // initialize the list to be put into the ListView
-        String brachosList = null;
-        getIntent().getStringArrayExtra(brachosList);
+        getIntent().getStringArrayExtra(getString(R.string.brachosList));
 
         // initialize the list to be passed into the Adapter
         // to hold the items whose respective buttons are clicked

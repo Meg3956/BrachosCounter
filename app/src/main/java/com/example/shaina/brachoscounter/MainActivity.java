@@ -78,11 +78,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void launchFoodDrink(View view) {
         Intent intent = new Intent(this, FoodDrinkActivity.class);
-        String brachosList = null;
         String[] foodBrachos = {"Hamotzi", "Mezonos", "Hagafen", "Haetz", "Ha'adama", "Shehakol",
                 "Birkas Hamazon", "Al Hamichya", "Borei Nefashos"};
-        intent.putExtra(brachosList, foodBrachos);
-        startActivityForResult(intent, SINGLE_BRACHOS_REQUEST_CODE);
+        intent.putExtra(getString(R.string.brachosList), foodBrachos);
+        startActivityForResult(intent, MULTI_BRACHOS_REQUEST_CODE);
     }
 
     @Override
