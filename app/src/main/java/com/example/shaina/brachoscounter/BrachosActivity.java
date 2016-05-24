@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class BrachosActivity extends AppCompatActivity {
 
     private BrachosAdapter mBrachosAdapter; // The adapter we used for this ListView
-    protected String[] brachos;
+    protected String[] mBrachosArray;
     private ArrayList<String> mListOfCheckedItems; // ArrayList of items to be
     // passed to the adapter which will add selected items to the list
 
@@ -31,11 +31,10 @@ public class BrachosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_brachos);
         processIncomingData();
         //processSavedState(savedInstanceState);
-        //initializeArrays(savedInstanceState);
+        initializeArrays(savedInstanceState);
         setupListView();
         setupActionBar();
 
-// not relevant here
     }
 
     private void setupActionBar() {
@@ -48,12 +47,12 @@ public class BrachosActivity extends AppCompatActivity {
 
     private void processIncomingData() {
         Intent intent = getIntent();
-        brachos = intent.getStringArrayExtra(getString(R.string.brachosList));
+        mBrachosArray = intent.getStringArrayExtra(getString(R.string.brachosList));
     }
 
     private void initializeArrays(Bundle savedInstanceState) {
         // initialize the list to be put into the ListView
-        getIntent().getStringArrayExtra(getString(R.string.brachosList));
+        mBrachosArray = getIntent().getStringArrayExtra(getString(R.string.brachosList));
 
         // initialize the list to be passed into the Adapter
         // to hold the items whose respective buttons are clicked
@@ -68,23 +67,11 @@ public class BrachosActivity extends AppCompatActivity {
         ListView list = (ListView) findViewById(R.id.listView);
 
         assert mListOfCheckedItems != null;
-        mBrachosAdapter = new BrachosAdapter(this, brachos, R.layout.listview_row,
-                R.id.brachaOption, R.id.addButton,
-                mListOfCheckedItems);
+        mBrachosAdapter = new BrachosAdapter(this, mBrachosArray, R.layout.listview_row,
+                                             R.id.brachaOption, R.id.addSymbol,
+                                             mListOfCheckedItems);
         list.setAdapter(mBrachosAdapter);
     }
-
-    /*private void setupFAB() {
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Items added: " + mListOfCheckedItems.size()
-                        + "; Total items " + mBrachosAdapter.getCount() + ".", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    } */
 
 
     /*protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -93,7 +80,7 @@ public class BrachosActivity extends AppCompatActivity {
     }*/
 
 
-    //What is this for?
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

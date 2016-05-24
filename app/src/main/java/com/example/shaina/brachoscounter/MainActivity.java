@@ -2,8 +2,10 @@ package com.example.shaina.brachoscounter;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,7 +15,6 @@ import java.util.ArrayList;
 
 //import com.google.gson.Gson;
 
-//TODO: DEAL With LG user crash?
 public class MainActivity extends AppCompatActivity {
 
     private final static String sPREFS_FIELDS = "PREFS_FIELDS";
@@ -234,4 +235,29 @@ public class MainActivity extends AppCompatActivity {
 
         set(key, json);
     }*/
+
+
+    // LG work-around
+    @Override
+    public boolean onKeyDown (int keyCode, KeyEvent event)
+    {
+        boolean isOldLG = ((keyCode == KeyEvent.KEYCODE_MENU) &&
+                                   (Build.VERSION.SDK_INT <= 16) &&
+                                   (Build.MANUFACTURER.compareTo ("LGE") == 0));
+
+        //noinspection SimplifiableConditionalExpression
+        return isOldLG ? true : super.onKeyDown (keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyUp (int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_MENU) &&
+                (Build.VERSION.SDK_INT <= 16) &&
+                (Build.MANUFACTURER.compareTo ("LGE") == 0)) {
+            openOptionsMenu ();
+            return true;
+        }
+        return super.onKeyUp (keyCode, event);
+    }
 }

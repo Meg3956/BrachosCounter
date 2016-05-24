@@ -2,6 +2,7 @@ package com.example.shaina.brachoscounter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,9 +75,18 @@ public class BrachosAdapter extends ArrayAdapter<String> {
         // Store a reference to the current text
         final String currentText = currentViewHolder.mCurrentTextView.getText().toString();
 
-        // show/hide the button if the ArrayList does not/does contain this item
+        // The following two ternary operator statements might better be changed to one if/else
+        // set the text of the button to reflect if the ArrayList does not/does contain this item
         currentViewHolder.mCurrentButton.setText(
                 mClickedItemsList.contains(currentText) ? "Remove from list" : "Add to list");
+
+        // set the left drawable of the button to reflect if the ArrayList does not/does contain this item
+        currentViewHolder.mCurrentButton.setCompoundDrawablesWithIntrinsicBounds (
+                    ContextCompat.getDrawable (mContext,
+                                                mClickedItemsList.contains(currentText) ?
+                                                R.drawable.ic_remove_black_24dp :
+                                                R.drawable.ic_add_black_24dp)
+                , null, null, null);
 
         // set the listener
         currentViewHolder.mCurrentButton.setOnClickListener(new View.OnClickListener() {
