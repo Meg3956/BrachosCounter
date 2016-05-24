@@ -52,7 +52,8 @@
                 android:layout_width="20dip"
                 android:layout_height="100dip"
                 android:layout_weight="1"
-                android:background="@drawable/holidays" />
+                android:background="@drawable/holidays"
+                android:onClick="launchHolidays" />
 
         </TableRow>
 
@@ -65,13 +66,15 @@
                 android:layout_width="40dip"
                 android:layout_height="100dip"
                 android:layout_weight="1"
-                android:background="@drawable/birchos_hanehenin" />
+                android:background="@drawable/birchos_hanehenin"
+                android:onClick="launchBirchosHanehenin" />
 
             <ImageButton
                 android:layout_width="40dip"
                 android:layout_height="100dip"
                 android:layout_weight="1"
-                android:background="@drawable/miscellaneous" />
+                android:background="@drawable/miscellaneous"
+                android:onClick="launchMiscellaneous" />
 
             <ImageButton
                 android:layout_width="40dip"

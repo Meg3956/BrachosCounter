@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity
                     break;
             }
         }
-
     }
 
     public void launchDaveningPage (View view)
@@ -90,6 +89,31 @@ public class MainActivity extends AppCompatActivity
                                 "Birkas Hamazon", "Al Hamichya", "Borei Nefashos"};
         intent.putExtra (getString (R.string.brachosList), foodBrachos);
         startActivityForResult (intent, MULTI_BRACHOS_REQUEST_CODE);
+    }
+
+    public void launchHolidays(View view) {
+        Intent intent = new Intent(this, BrachosActivity.class);
+        String[] holidayBrachos = {"Hadlokas Neiros Chanuka (2)", "Shehechiyanu", "Lulav and Esrog",
+                "Leisheiv BaSukkah", "Mikra Megillah"};
+        intent.putExtra(getString(R.string.brachosList), holidayBrachos);
+        startActivityForResult(intent, MULTI_BRACHOS_REQUEST_CODE);
+    }
+
+    public void launchBirchosHanehenin(View view) {
+        Intent intent = new Intent(this, BrachosActivity.class);
+        String[] haneheninBrachos = {"Minei Besamim", "Atzei Besamim", "Isvei Besamim", "Reiach tov l'peiros"};
+        intent.putExtra(getString(R.string.brachosList), haneheninBrachos);
+        startActivityForResult(intent, MULTI_BRACHOS_REQUEST_CODE);
+    }
+
+    public void launchMiscellaneous(View view) {
+        Intent intent = new Intent(this, BrachosActivity.class);
+        String[] miscBrachos = {"Sheva Brachos Bracha", "Mezuzah", "Ma'akah", "Tevilas Keilim",
+                "Hafrashas Challah", "Maaser", "Oseh Maaseh Beraishis", "Shekocho Ugvuraso",
+                "Seeing a rainbow", "Seeing an ocean", "Meshaneh Habriyos", "Seeing a blooming tree",
+                "Seeing a Torah scholar", "Seeing a secular scholar", "Chacham Harazim", "Dayan Haemes",
+                "HaTov V'hameitiv", "Sha'asa li nes", "Shehechiyanu", "Asher Yatzar", "Tefillas Haderech"};
+        intent.putExtra(getString(R.string.brachosList), miscBrachos);
     }
 
     @Override

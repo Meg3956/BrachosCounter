@@ -78,7 +78,7 @@ public class BrachosAdapter extends ArrayAdapter<String> {
         // The following two ternary operator statements might better be changed to one if/else
         // set the text of the button to reflect if the ArrayList does not/does contain this item
         currentViewHolder.mCurrentButton.setText(
-                mClickedItemsList.contains(currentText) ? "Remove from list" : "Add to list");
+                mClickedItemsList.contains(currentText) ? "Remove" : "Add");
 
         // set the left drawable of the button to reflect if the ArrayList does not/does contain this item
         currentViewHolder.mCurrentButton.setCompoundDrawablesWithIntrinsicBounds (
