@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity
 
     public void launchHolidays(View view) {
         Intent intent = new Intent(this, BrachosActivity.class);
-        String[] holidayBrachos = {"Hadlokas Neiros Chanuka (2)", "Shehechiyanu", "Lulav and Esrog",
+        String[] holidayBrachos = {"L'hadlik Ner Chanuka", "She'asa Nisim", "Shehechiyanu", "Lulav and Esrog",
                 "Leisheiv BaSukkah", "Mikra Megillah"};
         intent.putExtra(getString(R.string.brachosList), holidayBrachos);
         startActivityForResult(intent, MULTI_BRACHOS_REQUEST_CODE);
@@ -122,6 +122,12 @@ public class MainActivity extends AppCompatActivity
                 "Seeing a Torah scholar", "Seeing a secular scholar", "Chacham Harazim", "Dayan Haemes",
                 "HaTov V'hameitiv", "Sha'asa li nes", "Shehechiyanu", "Asher Yatzar", "Tefillas Haderech"};
         intent.putExtra(getString(R.string.brachosList), miscBrachos);
+    }
+    
+    public void launchTotalBreakdown(View view) {
+        Intent intent = new Intent(this, BrachosBreakdown.class);
+        intent.putExtra("description", brachosDescriptions);
+        intent.putExtra("amount", brachosNumbers);
     }
 
     @Override
