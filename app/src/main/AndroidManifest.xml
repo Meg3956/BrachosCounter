@@ -45,15 +45,6 @@
                 android:value=".MainActivity"/>
         </activity>
 
-        <activity
-            android:name=".FoodDrinkActivity"
-            android:parentActivityName=".MainActivity">
-            <!-- To support API 11-15 -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-        </activity>
-
     </application>
 
 </manifest>

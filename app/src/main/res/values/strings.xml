@@ -17,7 +17,7 @@
     <string name="main_screen_instructions">Select a category to add brachos.</string>
     <string name="view_totals">View Totals</string>
     <string name="add_to_total">Add to Total</string>
-    <string name="view_total_breakdown">Total Breakdown</string>
+    <string name="view_total_breakdown">Breakdown</string>
     <string name="clear">Clear</string>
     <string name="view_total">View Total</string>
     <string name="brachosList">brachosList</string>
