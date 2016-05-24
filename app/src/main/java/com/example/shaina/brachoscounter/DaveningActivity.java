@@ -45,9 +45,7 @@ public class DaveningActivity extends Activity {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v,
                                         int groupPosition, long id) {
-                // Toast.makeText(getApplicationContext(),
-                // "Group Clicked " + daveningCategoryNames.get(groupPosition),
-                // Toast.LENGTH_SHORT).show();
+
                 return false;
             }
         });
@@ -57,25 +55,21 @@ public class DaveningActivity extends Activity {
 
             @Override
             public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        daveningCategoryNames.get(groupPosition) + " Expanded",
-                        Toast.LENGTH_SHORT).show();
+
                 listAdapter.checkAllInGroup(groupPosition);
 
             }
         });
 
         // ListView Group collapsed listener
-        expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+       /* expListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
 
             @Override
             public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        daveningCategoryNames.get(groupPosition) + " Collapsed",
-                        Toast.LENGTH_SHORT).show();
+
                 listAdapter.uncheckAllInGroup(groupPosition);
             }
-        });
+        });*/
 
         // ListView on child click listener
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
@@ -84,14 +78,14 @@ public class DaveningActivity extends Activity {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
 
-                Toast.makeText(
+                /*Toast.makeText(
                         getApplicationContext(),
                         daveningCategoryNames.get(groupPosition)
                                 + " : "
                                 + brachosNames.get(
                                 daveningCategoryNames.get(groupPosition)).get(
                                 childPosition), Toast.LENGTH_SHORT)
-                        .show();
+                        .show();*/
                 return false;
             }
         });
@@ -274,10 +268,6 @@ public class DaveningActivity extends Activity {
 
     @Override
     public void finish() {
-        Toast.makeText(
-                getApplicationContext(),
-                getSelectedBrachosNumbers().toString() + "", Toast.LENGTH_SHORT)
-                .show();
         Intent results = new Intent();
 
         results.putIntegerArrayListExtra("BRACHOS_NUMBERS", getSelectedBrachosNumbers());
