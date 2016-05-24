@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 //import com.google.gson.Gson;
@@ -65,7 +67,13 @@ public class MainActivity extends AppCompatActivity
                     }
                     break;
                 case SINGLE_BRACHOS_REQUEST_CODE:
+                    String brachaDescription=data.getStringExtra("BRACHOS_DESCRIPTION");
+                    if (!brachaDescription.isEmpty()){
+                        brachosDescriptionsToAdd.add(brachaDescription);
+                        brachosNumbersToAdd.add(1);
+                    }
                     break;
+
             }
         }
     }
@@ -169,18 +177,18 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences settings = getSharedPreferences (sPREFS_FIELDS, MODE_PRIVATE);
         String descriptionString = settings.getString (sBRACHOS_DESCRIPTION, "");
         if (!descriptionString.isEmpty ()) {
-            brachosDescriptions = (ArrayList<String>) restoreListFromJSON (descriptionString);
+            brachosDescriptions = restoreStringListFromJSON (descriptionString);
+            String brachosNumbersString=settings.getString (sBRACHOS_NUMBERS, "[]");
 
-            brachosNumbers = (ArrayList<Integer>) restoreListFromJSON (
-                    settings.getString (sBRACHOS_NUMBERS, "[]"));
+
+            ArrayList brachosArrayList=restoreIntegerListFromJSON (brachosNumbersString);
+
+            brachosNumbers = (ArrayList<Integer>) brachosArrayList;
 
 
         }
 
-       /* Toast.makeText(
-                getApplicationContext(),
-                brachosDescriptions.toString() + "", Toast.LENGTH_SHORT)
-                .show();*/
+
 
        /*
         String numbersString=settings.getString(sBRACHOS_NUMBERS,"");
@@ -229,12 +237,22 @@ public class MainActivity extends AppCompatActivity
         return json;
     }
 
-    private ArrayList restoreListFromJSON (String json)
+    private ArrayList<Integer> restoreIntegerListFromJSON (String json)
     {
+
         Gson gson = new Gson ();
-        ArrayList obj = gson.fromJson (json, ArrayList.class);
+        // This is how you tell gson about the generic type you want to get back:
+        Type type = new TypeToken<ArrayList<Integer>>(){}.getType();
+        ArrayList<Integer> obj = gson.fromJson (json,type);
         return obj;
     }
+    private ArrayList<String> restoreStringListFromJSON (String json)
+    {
+        Gson gson = new Gson ();
+        ArrayList<String> obj = gson.fromJson (json, ArrayList.class);
+        return obj;
+    }
+
 
     private void addBrachosFromRestoredActivity ()
     {
@@ -253,7 +271,7 @@ public class MainActivity extends AppCompatActivity
     private void viewTotalBrachos ()
     {
         int counter = 0;
-        for (Integer brachosNumber : brachosNumbers) {
+     for (Integer brachosNumber : brachosNumbers) {
             counter += brachosNumber;
         }
       /*  Toast.makeText(
