@@ -77,16 +77,13 @@ public class BrachosAdapter extends ArrayAdapter<String> {
 
         // The following two ternary operator statements might better be changed to one if/else
         // set the text of the button to reflect if the ArrayList does not/does contain this item
-        currentViewHolder.mCurrentButton.setText(
-                mClickedItemsList.contains(currentText) ? "Remove" : "Add");
+      /*  currentViewHolder.mCurrentButton.setText(
+                mClickedItemsList.contains(currentText) ? "Remove" : "Add");*/
 
         // set the left drawable of the button to reflect if the ArrayList does not/does contain this item
-        currentViewHolder.mCurrentButton.setCompoundDrawablesWithIntrinsicBounds (
-                    ContextCompat.getDrawable (mContext,
-                                                mClickedItemsList.contains(currentText) ?
-                                                R.drawable.ic_remove_black_24dp :
-                                                R.drawable.ic_add_black_24dp)
-                , null, null, null);
+        currentViewHolder.mCurrentButton.setCompoundDrawablesWithIntrinsicBounds(
+                ContextCompat.getDrawable(mContext,
+                        R.drawable.ic_add_black_24dp), null, null, null);
 
         // set the listener
         currentViewHolder.mCurrentButton.setOnClickListener(new View.OnClickListener() {
@@ -94,18 +91,13 @@ public class BrachosAdapter extends ArrayAdapter<String> {
             public void onClick(View v) {
                 String actionPerformed;
 
-                if (((Button) v).getText().toString().contains("Remove")) {
-                    actionPerformed = "Removed ";
 
-                    // Remove the current row's text from the list
-                    mClickedItemsList.remove(currentText);
-
-                } else {
                     actionPerformed = "Added ";
 
                     // Add the current row's text to the list
-                    mClickedItemsList.add(currentText);
-                }
+                     mClickedItemsList.add(currentText);
+                    //TODO: Add the numbers
+
 
                 // Output that the current text was just added or removed
                 Toast.makeText(mContext, actionPerformed + currentText,

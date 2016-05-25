@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -66,13 +67,6 @@ public class MainActivity extends AppCompatActivity
                         brachosNumbersToAdd.add (number);
                     }
                     break;
-                case SINGLE_BRACHOS_REQUEST_CODE:
-                    String brachaDescription=data.getStringExtra("BRACHOS_DESCRIPTION");
-                    if (!brachaDescription.isEmpty()){
-                        brachosDescriptionsToAdd.add(brachaDescription);
-                        brachosNumbersToAdd.add(1);
-                    }
-                    break;
 
             }
         }
@@ -96,7 +90,7 @@ public class MainActivity extends AppCompatActivity
         String[] foodBrachos = {"Hamotzi", "Mezonos", "Hagafen", "Haetz", "Ha'adama", "Shehakol",
                                 "Birkas Hamazon", "Al Hamichya", "Borei Nefashos"};
         intent.putExtra (getString (R.string.brachosList), foodBrachos);
-        startActivityForResult (intent, MULTI_BRACHOS_REQUEST_CODE);
+        startActivityForResult (intent, MULTI_BRACHOS_MULTIPLE_REQUEST_CODE);
     }
 
     public void launchHolidays(View view) {
@@ -104,14 +98,14 @@ public class MainActivity extends AppCompatActivity
         String[] holidayBrachos = {"L'hadlik Ner Chanuka", "She'asa Nisim", "Shehechiyanu", "Lulav and Esrog",
                 "Leisheiv BaSukkah", "Mikra Megillah"};
         intent.putExtra(getString(R.string.brachosList), holidayBrachos);
-        startActivityForResult(intent, MULTI_BRACHOS_REQUEST_CODE);
+        startActivityForResult(intent, MULTI_BRACHOS_MULTIPLE_REQUEST_CODE);
     }
 
     public void launchBirchosHanehenin(View view) {
         Intent intent = new Intent(this, BrachosActivity.class);
         String[] haneheninBrachos = {"Minei Besamim", "Atzei Besamim", "Isvei Besamim", "Reiach tov l'peiros"};
         intent.putExtra(getString(R.string.brachosList), haneheninBrachos);
-        startActivityForResult(intent, MULTI_BRACHOS_REQUEST_CODE);
+        startActivityForResult(intent, MULTI_BRACHOS_MULTIPLE_REQUEST_CODE);
     }
 
     public void launchMiscellaneous(View view) {
@@ -122,13 +116,14 @@ public class MainActivity extends AppCompatActivity
                 "Seeing a Torah scholar", "Seeing a secular scholar", "Chacham Harazim", "Dayan Haemes",
                 "HaTov V'hameitiv", "Sha'asa li nes", "Shehechiyanu", "Asher Yatzar", "Tefillas Haderech"};
         intent.putExtra(getString(R.string.brachosList), miscBrachos);
+        startActivityForResult(intent, MULTI_BRACHOS_MULTIPLE_REQUEST_CODE);
     }
     
-    public void launchTotalBreakdown(View view) {
+  /*  public void launchTotalBreakdown(View view) {
         Intent intent = new Intent(this, BrachosBreakdown.class);
         intent.putExtra("description", brachosDescriptions);
         intent.putExtra("amount", brachosNumbers);
-    }
+    }*/
 
     @Override
     protected void onStart ()
@@ -177,9 +172,6 @@ public class MainActivity extends AppCompatActivity
 
     private void restoreNonSettingsActivityPreferences ()
     {
-        //TODO: Set to our lists.
-
-
         SharedPreferences settings = getSharedPreferences (sPREFS_FIELDS, MODE_PRIVATE);
         String descriptionString = settings.getString (sBRACHOS_DESCRIPTION, "");
         if (!descriptionString.isEmpty ()) {
@@ -262,6 +254,7 @@ public class MainActivity extends AppCompatActivity
 
     private void addBrachosFromRestoredActivity ()
     {
+        //TODO: Increment instead of add all
         brachosDescriptions.addAll (brachosDescriptionsToAdd);
         brachosDescriptionsToAdd.clear ();
 
@@ -280,14 +273,8 @@ public class MainActivity extends AppCompatActivity
      for (Integer brachosNumber : brachosNumbers) {
             counter += brachosNumber;
         }
-      /*  Toast.makeText(
-                getApplicationContext(),
-                brachosNumbers.toString() + "", Toast.LENGTH_SHORT)
-                .show();*/
-        Toast.makeText (
-                getApplicationContext (),
-                counter + "", Toast.LENGTH_SHORT)
-                .show ();
+        String snackbarText=getString(R.string.total_brachos) + " " +counter;
+      showSnackbar(snackbarText);
     }
 
     public void clearBrachos (View view)
@@ -296,6 +283,7 @@ public class MainActivity extends AppCompatActivity
         addBrachosFromRestoredActivity ();
         brachosDescriptions.clear ();
         brachosNumbers.clear ();
+        showSnackbar("Brachos cleared.");
     }
 
 
@@ -356,5 +344,13 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
         return super.onKeyUp (keyCode, event);
+    }
+
+    private void showSnackbar(String snackbarText){
+        final View cl = findViewById (R.id.activity_main);
+        Snackbar sb = Snackbar.make (cl, snackbarText,
+                Snackbar.LENGTH_LONG);
+        sb.show();
+        sb.show();
     }
 }

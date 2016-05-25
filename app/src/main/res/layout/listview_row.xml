@@ -7,10 +7,8 @@
     android:background="@color/colorBackground">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minWidth="90dp"
-        android:minHeight="@dimen/listview_row_height"
+        android:layout_width="60dp"
+        android:layout_height="@dimen/listview_row_height"
         android:id="@+id/addSymbol"
         android:layout_margin="@dimen/button_margin"
         />
