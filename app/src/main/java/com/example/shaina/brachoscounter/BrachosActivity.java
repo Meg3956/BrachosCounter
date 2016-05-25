@@ -6,9 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -127,7 +125,6 @@ public class BrachosActivity extends AppCompatActivity {
     }
     @Override
     public void finish() {
-        Toast.makeText(this, " in toast", Toast.LENGTH_LONG).show();
         Intent results = new Intent();
         results.putStringArrayListExtra("BRACHOS_DESCRIPTIONS", mListOfCheckedItems);
         results.putIntegerArrayListExtra("BRACHOS_NUMBERS", getArrayListOfBrachosNumbers());

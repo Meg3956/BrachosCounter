@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by Shaina on 5/17/2016.
  */
-public class BrachosActivity extends AppCompatActivity {
+public class BrachosBreakdownActivity extends AppCompatActivity {
 
     private BrachosAdapter mBrachosAdapter; // The adapter we used for this ListView
     protected String[] mBrachosArray;
@@ -68,8 +68,8 @@ public class BrachosActivity extends AppCompatActivity {
 
         assert mListOfCheckedItems != null;
         mBrachosAdapter = new BrachosAdapter(this, mBrachosArray, R.layout.listview_row,
-                                             R.id.brachaOption, R.id.addSymbol,
-                                             mListOfCheckedItems);
+                R.id.brachaOption, R.id.addSymbol,
+                mListOfCheckedItems);
         list.setAdapter(mBrachosAdapter);
     }
 
@@ -78,7 +78,6 @@ public class BrachosActivity extends AppCompatActivity {
         String item = (String) getListAdapter().getItem(position);
         Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
     }*/
-
 
 
     @Override
