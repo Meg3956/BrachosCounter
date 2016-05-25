@@ -83,4 +83,7 @@
 
     <string name="pref_title_vibrate">Vibrate</string>
 
+    <string name="aboutDialog_title">About</string>
+    <string name="aboutDialog_banner">Created by Meira Goldberg and Shaina Hirschman in MCO 451.\nMuch thanks to Professor Abrahamson!\nMake your brachos count!</string>
+    <string name="OK">ok</string>
 </resources>

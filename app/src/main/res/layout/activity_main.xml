@@ -102,21 +102,22 @@
             android:layout_height="match_parent"
             android:layout_marginTop="60dp"
             android:layout_gravity="center"
-            style="@android:style/ButtonBar">
+            style="@android:style/ButtonBar"
+           >
 
             <Button
                 android:id="@+id/totalsButton"
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:gravity="center"
                 android:text="@string/view_total"
-                android:onClick="launchTotalBreakdown" />
+                android:onClick="viewTotalBrachos" />
 
 
             <Button
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:id="@+id/totalBreakdown"
                 android:gravity="center"
-                android:text="@string/view_total_breakdown" />
+                android:text="@string/view_total_breakdown"/>
             <Button
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:id="@+id/clearButton"
