@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class BrachosBreakdownActivity extends AppCompatActivity {
 
-    private BrachosAdapter mBrachosAdapter; // The adapter we used for this ListView
     protected String[] mBrachosArray;
+    private BrachosBreakdownAdapter mBrachosAdapter; // The adapter we used for this ListView
     private ArrayList<String> mListOfCheckedItems; // ArrayList of items to be
     // passed to the adapter which will add selected items to the list
 
@@ -41,7 +41,6 @@ public class BrachosBreakdownActivity extends AppCompatActivity {
         try {
             getDelegate().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         } catch (NullPointerException nullPointerException) {
-            //nullPointerException.printStackTrace();
         }
     }
 
@@ -67,18 +66,10 @@ public class BrachosBreakdownActivity extends AppCompatActivity {
         ListView list = (ListView) findViewById(R.id.listView);
 
         assert mListOfCheckedItems != null;
-        mBrachosAdapter = new BrachosAdapter(this, mBrachosArray, R.layout.listview_row,
-                R.id.brachaOption, R.id.addSymbol,
-                mListOfCheckedItems);
+        mBrachosAdapter = new BrachosBreakdownAdapter(this, mBrachosArray, R.layout.listview_row,
+                R.id.brachaOption, R.id.addSymbol, mListOfCheckedItems);
         list.setAdapter(mBrachosAdapter);
     }
-
-
-    /*protected void onListItemClick(ListView l, View v, int position, long id) {
-        String item = (String) getListAdapter().getItem(position);
-        Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
-    }*/
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
