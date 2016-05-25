@@ -3,6 +3,7 @@ package com.example.shaina.brachoscounter;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.NumberPicker;
@@ -21,6 +22,7 @@ public class AddYourOwnActivity extends AppCompatActivity {
         numberPicker.setMaxValue(100);
         numberPicker.setWrapSelectorWheel(false);
         numberPicker.setValue(0);
+        setupActionBar();
 
         editText = (EditText) findViewById(R.id.editText);
     }
@@ -49,6 +51,20 @@ public class AddYourOwnActivity extends AppCompatActivity {
         return (numberPicker.getValue()!=0 && editText.getText().toString().trim().isEmpty());
     }
 
+    private void setupActionBar() {
+        try {
+            getDelegate().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } catch (NullPointerException nullPointerException) {
+            //nullPointerException.printStackTrace();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
     @Override
     public void finish() {
         Intent results = new Intent();

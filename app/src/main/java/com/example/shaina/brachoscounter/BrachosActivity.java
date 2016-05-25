@@ -2,9 +2,11 @@ package com.example.shaina.brachoscounter;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -116,13 +118,7 @@ public class BrachosActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void getSelectedBrachosNumbers(){
 
-    }
-
-    private void getSelectedBrachosDescriptions(){
-
-    }
     @Override
     public void finish() {
         Intent results = new Intent();
