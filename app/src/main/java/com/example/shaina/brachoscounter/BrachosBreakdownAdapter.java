@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,13 +18,12 @@ public class BrachosBreakdownAdapter extends ArrayAdapter<String> {
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private int mRowLayoutResourceId, mRowTextViewResourceId;
-    private ArrayList<String> mAdapterData;
 
-    public BrachosBreakdownAdapter(Context context, ArrayList<String> clickedBrachos, int rowResourceId,
-                                   int rowTextViewResourceId) {
+    public BrachosBreakdownAdapter(Context context, ArrayList<String> brachosDescription,
+                                   ArrayList<String> brachosAmount, int rowResourceId, int rowTextViewResourceId) {
 
         // superclass will handle the String array portion of this, like getCount(), etc.
-        super(context, rowResourceId, clickedBrachos);
+        super(context, rowResourceId);
 
         // store a reference to the Context
         mContext = context;
@@ -38,9 +36,6 @@ public class BrachosBreakdownAdapter extends ArrayAdapter<String> {
 
         // We will need these later to know what are the IDs of the resources inside the Row XML
         mRowTextViewResourceId = rowTextViewResourceId;
-
-        // Store a reference to the Adapter's data source
-        mAdapterData = clickedBrachos;
     }
 
     @Override
@@ -78,7 +73,6 @@ public class BrachosBreakdownAdapter extends ArrayAdapter<String> {
 
     static class ViewHolder {
         TextView mCurrentTextView;
-        Button mCurrentButton;
     }
 }
 

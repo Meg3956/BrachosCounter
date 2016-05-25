@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class BrachosBreakdownActivity extends AppCompatActivity {
 
-    protected String[] mBrachosArray;
+    protected ArrayList<String> mBrachosDescription, mBrachosAmount;
     private BrachosBreakdownAdapter mBrachosAdapter; // The adapter we used for this ListView
     private ArrayList<String> mListOfCheckedItems; // ArrayList of items to be
     // passed to the adapter which will add selected items to the list
@@ -46,28 +46,20 @@ public class BrachosBreakdownActivity extends AppCompatActivity {
 
     private void processIncomingData() {
         Intent intent = getIntent();
-        mBrachosArray = intent.getStringArrayExtra(getString(R.string.brachosList));
+        mBrachosDescription = intent.getStringArrayListExtra("description");
+        mBrachosAmount = intent.getStringArrayListExtra("amount");
     }
 
     private void initializeArrays(Bundle savedInstanceState) {
         // initialize the list to be put into the ListView
-        mBrachosArray = getIntent().getStringArrayExtra(getString(R.string.brachosList));
-
-        // initialize the list to be passed into the Adapter
-        // to hold the items whose respective buttons are clicked
-
-        // if we have no saved bundle, then make a new list; else, use the ArrayList from bundle
-        mListOfCheckedItems = (savedInstanceState == null ?
-                new ArrayList<String>(18) :
-                savedInstanceState.getStringArrayList("CHECKED_ITEMS"));
+        mBrachosDescription = getIntent().getStringArrayListExtra("description");
+        mBrachosAmount = getIntent().getStringArrayListExtra("amount");
     }
 
     private void setupListView() {
         ListView list = (ListView) findViewById(R.id.listView);
-
-        assert mListOfCheckedItems != null;
-        mBrachosAdapter = new BrachosBreakdownAdapter(this, mBrachosArray, R.layout.brachos_breakdown_row,
-                R.id.brachaBreakdown, mListOfCheckedItems);
+        mBrachosAdapter = new BrachosBreakdownAdapter(this, mBrachosDescription, mBrachosAmount, R.layout.brachos_breakdown_row,
+                R.id.brachaBreakdown);
         list.setAdapter(mBrachosAdapter);
     }
 
@@ -77,7 +69,6 @@ public class BrachosBreakdownActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -92,6 +83,4 @@ public class BrachosBreakdownActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }
