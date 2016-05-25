@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity
     private final static String sPREFS_FIELDS = "PREFS_FIELDS";
     private final static String sBRACHOS_DESCRIPTION = "BRACHOS_DESCRIPTIONS";
     private final static String sBRACHOS_NUMBERS = "BRACHOS_NUMBERS";
+    final int SINGLE_BRACHOS_REQUEST_CODE = 1;
     final int MULTI_BRACHOS_REQUEST_CODE = 2;
     final int MULTI_BRACHOS_MULTIPLE_REQUEST_CODE = 3;
     ArrayList<String> brachosDescriptions;
@@ -116,13 +118,12 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra(getString(R.string.brachosList), miscBrachos);
         startActivityForResult(intent, MULTI_BRACHOS_MULTIPLE_REQUEST_CODE);
     }
-
-    public void launchTotalBreakdown(View view) {
-        Intent intent = new Intent(this, BrachosBreakdownActivity.class);
+    
+  /*  public void launchTotalBreakdown(View view) {
+        Intent intent = new Intent(this, BrachosBreakdown.class);
         intent.putExtra("description", brachosDescriptions);
         intent.putExtra("amount", brachosNumbers);
-        startActivity(intent);
-    }
+    }*/
 
     @Override
     protected void onStart ()
