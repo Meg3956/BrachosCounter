@@ -112,7 +112,6 @@
                 android:text="@string/view_total"
                 android:onClick="viewTotalBrachos" />
 
-
             <Button
                 style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                 android:id="@+id/totalBreakdown"
