@@ -2,14 +2,12 @@ package com.example.shaina.brachoscounter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,16 +18,14 @@ public class BrachosBreakdownAdapter extends ArrayAdapter<String> {
 
     private Context mContext;
     private LayoutInflater mLayoutInflater;
-    private int mRowLayoutResourceId, mRowTextViewResourceId, mRowButtonResourceId;
-    private String[] mAdapterData;
-    private ArrayList<String> mClickedItemsList;
+    private int mRowLayoutResourceId, mRowTextViewResourceId;
+    private ArrayList<String> mAdapterData;
 
-    public BrachosBreakdownAdapter(Context context, String[] objects, int rowResourceId,
-                                   int rowTextViewResourceId, int rowButtonResourceId,
-                                   ArrayList<String> clickedItemsList) {
+    public BrachosBreakdownAdapter(Context context, ArrayList<String> clickedBrachos, int rowResourceId,
+                                   int rowTextViewResourceId) {
 
         // superclass will handle the String array portion of this, like getCount(), etc.
-        super(context, rowResourceId, objects);
+        super(context, rowResourceId, clickedBrachos);
 
         // store a reference to the Context
         mContext = context;
@@ -42,19 +38,9 @@ public class BrachosBreakdownAdapter extends ArrayAdapter<String> {
 
         // We will need these later to know what are the IDs of the resources inside the Row XML
         mRowTextViewResourceId = rowTextViewResourceId;
-        mRowButtonResourceId = rowButtonResourceId;
-
-        // Store a reference to the list passed in from the Activity/Fragment to add to the list
-        mClickedItemsList = clickedItemsList;
 
         // Store a reference to the Adapter's data source
-        mAdapterData = objects;
-
-        // The list must have been already initialized or else we can't add any items to it later
-        if (mClickedItemsList == null) {
-            throw new NullPointerException
-                    ("The items list must be initialized before being passed in to the Adapter");
-        }
+        mAdapterData = clickedBrachos;
     }
 
     @Override
@@ -64,38 +50,6 @@ public class BrachosBreakdownAdapter extends ArrayAdapter<String> {
 
         // regardless of whether or not we have created a new row or converted one from before
         final ViewHolder currentViewHolder = (ViewHolder) currentRow.getTag();
-
-        // set the text of the current TextView to whatever the text is in the ArrayAdapter
-        currentViewHolder.mCurrentTextView.setText(getItem(position));
-
-        // Store a reference to the current text
-        final String currentText = currentViewHolder.mCurrentTextView.getText().toString();
-
-        // set the left drawable of the button to reflect if the ArrayList does not/does contain this item
-        currentViewHolder.mCurrentButton.setCompoundDrawablesWithIntrinsicBounds(
-                ContextCompat.getDrawable(mContext,
-                        R.drawable.ic_add_black_24dp), null, null, null);
-
-        // set the listener
-        currentViewHolder.mCurrentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String actionPerformed;
-
-                actionPerformed = "Added ";
-
-                // Add the current row's text to the list
-                mClickedItemsList.add(currentText);
-                //TODO: Add the numbers
-
-                // Output that the current text was just added or removed
-                Toast.makeText(mContext, actionPerformed + currentText,
-                        Toast.LENGTH_SHORT).show();
-
-                // change the button text since the item was added to or removed from the ArrayList
-                notifyDataSetChanged();
-            }
-        });
 
         // set the current row as the View to return when getView is called
         return currentRow;
@@ -109,10 +63,9 @@ public class BrachosBreakdownAdapter extends ArrayAdapter<String> {
         // create a new instance of the custom ViewHolder class above
         ViewHolder newViewHolder = new ViewHolder();
 
-        // set the TextView and Button member fields in this ViewHolder object to refer to
-        // the newly-inflated current row's TextView and Button (respectively)
+        // set the TextView member field in this ViewHolder object to refer to
+        // the newly-inflated current row's TextView
         newViewHolder.mCurrentTextView = (TextView) newRow.findViewById(mRowTextViewResourceId);
-        newViewHolder.mCurrentButton = (Button) newRow.findViewById(mRowButtonResourceId);
 
         // store a reference to this ViewHolder object in the newly-inflated row's Tag attribute
         // Now, we won't need to do a findViewById when processing a converted object in getView

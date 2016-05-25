@@ -66,8 +66,8 @@ public class BrachosBreakdownActivity extends AppCompatActivity {
         ListView list = (ListView) findViewById(R.id.listView);
 
         assert mListOfCheckedItems != null;
-        mBrachosAdapter = new BrachosBreakdownAdapter(this, mBrachosArray, R.layout.listview_row,
-                R.id.brachaOption, R.id.addSymbol, mListOfCheckedItems);
+        mBrachosAdapter = new BrachosBreakdownAdapter(this, mBrachosArray, R.layout.brachos_breakdown_row,
+                R.id.brachaBreakdown, mListOfCheckedItems);
         list.setAdapter(mBrachosAdapter);
     }
 
