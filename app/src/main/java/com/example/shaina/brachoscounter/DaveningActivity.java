@@ -3,7 +3,6 @@ package com.example.shaina.brachoscounter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 
 //DEAL WITH OPTIONS
-public class DaveningActivity extends AppCompatActivity {
+public class DaveningActivity extends Activity {
     DaveningCategoriesAdapter listAdapter;
     ExpandableListView expListView;
     ArrayList<String> daveningCategoryNames;
@@ -123,13 +122,6 @@ public class DaveningActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-    private void setupActionBar() {
-        try {
-            getDelegate().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        } catch (NullPointerException nullPointerException) {
-            //nullPointerException.printStackTrace();
-        }
     }
     //get selected Brachos gets an arraylist of the numbers for the brachos selected
     private ArrayList<Integer> getSelectedBrachosNumbers() {
