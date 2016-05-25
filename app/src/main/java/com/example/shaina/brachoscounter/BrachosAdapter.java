@@ -2,7 +2,6 @@ package com.example.shaina.brachoscounter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +60,7 @@ public class BrachosAdapter extends ArrayAdapter<String> {
         TextView mCurrentTextView;
         Button mCurrentButton;
     }
+
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {

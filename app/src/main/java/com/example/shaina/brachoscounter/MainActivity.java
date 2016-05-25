@@ -350,6 +350,6 @@ public class MainActivity extends AppCompatActivity
         Snackbar sb = Snackbar.make (cl, snackbarText,
                 Snackbar.LENGTH_LONG);
         sb.show();
-
+        sb.show();
     }
 }
